@@ -1,8 +1,9 @@
-FROM python:3
+FROM docker.io/centos/python-36-centos7
 
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+USER root
 
+RUN  pip install mlflow==1.5.0 && pip install awscli
+COPY entrypoint.sh /etc/entrypoint.sh
 EXPOSE 5000
-
-CMD mlflow ui
+USER 185
+ENTRYPOINT ["/etc/entrypoint.sh"]
