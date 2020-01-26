@@ -2,9 +2,9 @@ FROM docker.io/centos/python-36-centos7
 
 USER root
 
-RUN yum install libaio
+RUN yum -y install libaio
 
-RUN yum install https://download.oracle.com/otn_software/linux/instantclient/195000/oracle-instantclient19.5-basiclite-19.5.0.0.0-1.x86_64.rpm
+RUN yum -y install https://download.oracle.com/otn_software/linux/instantclient/195000/oracle-instantclient19.5-basiclite-19.5.0.0.0-1.x86_64.rpm
 
 COPY requirements.txt requirements.txt
 
